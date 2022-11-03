@@ -7,7 +7,7 @@ This repository code is about migrating your Nighscout data at Atlas/MongoDb (as
 
 The methode used here exporting/importing MongoDb data using the MongoDB client tools. These script a run from a Docker "mongo:4.4" container.
 
-The method also assumes you have setup your Nightcout application on Azure using the exelent tutorial *How to setup the Nightscout Diabetes Management Open Source Server on Azure FOR FREE_ by Scott Hanselman* ([see his Youtube link](#appendix)) which essentially is the same as described on [nightscout.github.io/vendors](#appendix)
+Note that the method described below assumes you have succesfully deployed your Nightcout application on Azure using the exelent tutorial *How to setup the Nightscout Diabetes Management Open Source Server on Azure FOR FREE_ by Scott Hanselman* ([see his Youtube link](#appendix)) which essentially is the same as described on [nightscout.github.io/vendors](#appendix). 
 
 It is recommended to run this from WSL on Windows 10/11 or any linux box supporting Docker and/or mongodb.
 
@@ -71,6 +71,8 @@ Make sure to edit the .env file!:
 This exellent tutorial by Scott Hanselman shows how to setup your Nighscout site on Azure for Free, step by step:
 
 [How to setup the Nightscout Diabetes Management Open Source Server on Azure FOR FREE](https://youtu.be/EDADrteGBnY)
+
+Note that when you exactly follow de steps Scott explaines in his video blog your Nighscout deployment on Azure will be free of charge, even when the 1 year trial expires!
 
 #### Other:
 
