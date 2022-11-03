@@ -1,5 +1,5 @@
 
-# AzureMogoDbDataMigration #
+# Azure MogoDb Data Migration #
 
 This repository code is about migrating your Nighscout data at Atlas/MongoDb (as used for deployment on Heroku) to Azure Cosmos DB for MongoDB.
 
