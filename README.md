@@ -5,20 +5,24 @@ This repository code is about migrating your Nighscout data at Atlas/MongoDb (as
 
 ## Migrating data ##
 
-The methode used here exporting/importing MongoDb data using the MongoDB client tools. These script a run from a standaard Docker "mongo:4.4" container.
+The methode used here exporting/importing MongoDb data using the MongoDB client tools. These script a run from a Docker "mongo:4.4" container.
 
-The method also assumes you have setup your Nightcout application on Azure using this execelent tutorial by Scott Hanselman: 
+The method also assumes you have setup your Nightcout application on Azure using the exelent tutorial _How to setup the Nightscout Diabetes Management Open Source Server on Azure FOR FREE_ by Scott Hanselman (see Appendix)
+
+It is recommended to run this from WSL on Windows 10/11 or any linux box supporting Docker and/or mongodb.
+
+You may choose to not use docker: it is possible to run the scripts directly on a linux host with the MongoDB client tools installed. You may need to to slightly alter the script provided fro this,
 
 ## The migration proceure in general:
 
 ### Edit Settings
-Start by editying the file _.env_ to specify your database connection parameters.
+Start by editying the _.env_ file to specify your database connection parameters.
 
 ### Export/import data
 Next start the docker container and migrate the data from Atlas to Azure:
 
 1. Start a mongodb docker container
-2. Export relevant MongoDb collections from an Atlas/MongoDB database by running the _mongoexport_ tool on the container
+2. Export relevant MongoDb collections from the Atlas/MongoDB database by running the _mongoexport_ tool on the container.
 3. Import data the data exported into the MongoDB databse on Azure running the _mongoimport_ tool on the container
 4. Stop the container
 
@@ -36,10 +40,10 @@ Be patient...
 3. Close the web page.
 
 ## Finalizing
-Be patient. The database is busy rebuilding indexes. This may take some time, dependang on the data size of your database.
+Be patient. The database is busy rebuilding indexes. Depending on the data size of your database this may take some time .
 
-1. WAIT for about 30 minutes
-2. Open the NS web page and check the _Nighscout Admin Tools_ (it should not show errors on reading the database)
+1. WAIT for about 30 minutes.
+2. Open the NS web page and check the _Nighscout Admin Tools_ until it does not show errors on reading the database.
 3. Use the Admin page to "trim" your database by deleting _devicestatus/treatments/entries_ older then 180 days.
 
 Now let the site run for some time before you start changing settings or uploading data.
@@ -55,10 +59,9 @@ Make sure to edit the .env file!:
 
 ## Tips:
 
-1. When setting up your Azure site following the tutorial, make sure not the define the _"iob" and "cob" plugins_.    This can prevent the site from initial startup.
+1. When setting up your Azure site following the tutorial, make sure not the define the _"iob" and "cob" plugins_. This can prevent the site from initial startup.
 
- 2. Do not forget to disable public access to your NS site (add 
- setting AUTH_DEFAULT_ROLES=denied)
+2. Do not forget to disable public access to your NS site (add setting AUTH_DEFAULT_ROLES=denied)
 
 # APPENDIX #
 
